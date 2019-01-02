@@ -22,6 +22,7 @@ public class Calendario extends javax.swing.JFrame {
         db.connect();
         initComponents();
         z = new Organizer();
+        z.updateDays();
         jLabel1.setText(z.months[z.mes]);
         jLabel2.setText(""+z.ano);
         boolean start = false;
@@ -2393,6 +2394,7 @@ public class Calendario extends javax.swing.JFrame {
         atualizaTudo();          
     }//GEN-LAST:event_button37ActionPerformed
     public void atualizaTudo(){
+        z.updateDays();
         Database db= new Database();
         db.connect();
         jLabel1.setText(z.months[z.mes]);

@@ -41,8 +41,11 @@ public class Database {
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-              if(rs.getString("titulo").equals(t))JOptionPane.showMessageDialog(rootPane, "Problema com titulo - já existente");
-              return;
+              if(rs.getString("titulo").equals(t)){
+                  JOptionPane.showMessageDialog(rootPane, "Problema com titulo - já existente");
+                  return;
+              }
+              
             }          
             Statement st = con.createStatement(); 
             st.executeUpdate("Insert into message(horario,titulo ,conteudo) values('"+getCurrentDate() + "','"+ t +"','"+ m +"')"); 

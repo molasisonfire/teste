@@ -179,10 +179,11 @@ public class MainFrame extends javax.swing.JFrame {
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
         db.connect();
+        String [] save = list1.getItems();
         db.insert( textArea1.getText() , jTextField1.getText());
         db.connect();
         ArrayList<String> l = db.result();
-        list1.add(l.get(l.size()-1));
+        if(!save[save.length-1].equals(l.get(l.size()-1)))list1.add(l.get(l.size()-1));
     }//GEN-LAST:event_button1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
